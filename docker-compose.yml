@@ -1,0 +1,10 @@
+version: '2'
+services:
+  container:
+    build: .
+    volumes:
+      - ./disk:/timemachine
+    ports:
+      - '548:548'
+      - '636:636'
+
