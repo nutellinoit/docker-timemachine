@@ -18,15 +18,11 @@ If you want to use this on an ARM-Device (like the Raspberry Pi), you have two o
 
 ### Step 1 - Start the Server
 
-To download the docker container and execute it, simply run:
+```bash
+
+docker-compose up -d
 
 ```
-$ docker run -h timemachine --name timemachine --restart=unless-stopped -d -v /external_volume:/timemachine -it -p 548:548 -p 636:636 odarriba/timemachine
-```
-
-Replace `external_volume` with a local path where you want to store your data.
-
-As the image has been started using the `--restart=always` flag, it will start when the computers boots up.
 
 
 
@@ -35,13 +31,13 @@ As the image has been started using the `--restart=always` flag, it will start w
 To add a user, run:
 
 ```
-$ docker exec timemachine add-account USERNAME PASSWORD VOL_NAME VOL_ROOT [VOL_SIZE_MB]
+$ docker-compose exec add-account USERNAME PASSWORD VOL_NAME VOL_ROOT [VOL_SIZE_MB]
 ```
 
 Or, if you want to add a user with a specific UID/GID, use the following format
 
 ```
-$ docker exec timemachine add-account -i 1000 -g 1000 USERNAME PASSWORD VOL_NAME VOL_ROOT [VOL_SIZE_MB]
+$ docker-compose exec add-account -i 1000 -g 1000 USERNAME PASSWORD VOL_NAME VOL_ROOT [VOL_SIZE_MB]
 ```
 
 But take care that:
